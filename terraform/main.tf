@@ -25,14 +25,29 @@ variable "vercel_api_token" {
   description = "Vercel API token"
 }
 
-module "taylore_dev" {
-  source = "./modules/taylore.dev"
+module "obsidian_day_template" {
+  source = "./modules/obsidian_day_template"
+
+  basic_auth_username = var.obsidian_day_template_username
+  basic_auth_password = var.obsidian_day_template_password
+}
+
+variable "obsidian_day_template_username" {
+  type        = string
+  sensitive   = true
+  description = "Obsidian Day Template username"
+}
+
+variable "obsidian_day_template_password" {
+  type        = string
+  sensitive   = true
+  description = "Obsidian Day Template password"
 }
 
 module "qcbrunch" {
   source = "./modules/qcbrunch"
 }
 
-module "foo" {
-  source = "./modules/foo"
+module "taylore_dev" {
+  source = "./modules/taylore.dev"
 }
