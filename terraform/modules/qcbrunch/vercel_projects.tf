@@ -9,7 +9,7 @@ resource "vercel_project" "qcbrunch_dev" {
 
 resource "vercel_project" "qcbrunch_prod" {
   id        = "QmSmPszZX5XpyfTqnjSQPus2FjkkDM1wEat1R41fwuTK6H"
-  name      = var.project
+  name      = "${var.project}-prod"
   framework = null
 
   public_source              = false

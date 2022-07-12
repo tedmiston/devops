@@ -1,6 +1,6 @@
 resource "vercel_project" "obsidian_day_template_project" {
   id        = "prj_EQ2I5oI5Vky7sYui63vzb2dDCftq"
-  name      = "day-template-jinja"
+  name      = "day-template-jinja-prod"
   framework = null
 
   environment = [
