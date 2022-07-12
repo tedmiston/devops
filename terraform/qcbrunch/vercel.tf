@@ -1,5 +1,30 @@
-# rec_d0c3daafcc2f548ef7ecac17
+# -- vercel system dns records --
+
+# these records are created by vercel and not editable via the vercel web app.
+# however, editing / overriding via terraform **does** work (whether that's
+# intentional or a bug is currently unclear).  the validation constraints also
+# differ between the terraform provider and the vercel web app.
+
+resource "vercel_dns_record" "cname_1" {
+  id     = "rec_cedd6cebbf44a21005a9321e"
+  domain = "qcbrunch.com"
+  type   = "CNAME"
+  name   = "*"
+  value  = "cname.vercel-dns.com."
+  ttl    = 60
+}
+
+resource "vercel_dns_record" "a" {
+  id     = "rec_0c999ce54a4bb0fd59179516"
+  domain = "qcbrunch.com"
+  type   = "A"
+  name   = ""
+  value  = "76.76.21.21"
+  ttl    = 60
+}
+
 resource "vercel_dns_record" "caa" {
+  id     = "rec_d0c3daafcc2f548ef7ecac17"
   domain = "qcbrunch.com"
   type   = "CAA"
   name   = ""
@@ -9,14 +34,7 @@ resource "vercel_dns_record" "caa" {
   ttl = 60
 }
 
-# rec_cedd6cebbf44a21005a9321e
-resource "vercel_dns_record" "cname_1" {
-  domain = "qcbrunch.com"
-  type   = "CNAME"
-  name   = "*"
-  value  = "cname.vercel-dns.com."
-  ttl    = 60
-}
+# -- custom dns records --
 
 # rec_f218a77416d00fb76fe5c3d4
 resource "vercel_dns_record" "cname_2" {
@@ -49,13 +67,4 @@ resource "vercel_dns_record" "cname_4" {
   # ttl    = 0
   # ttl    = null
   ttl = 60
-}
-
-# rec_0c999ce54a4bb0fd59179516
-resource "vercel_dns_record" "a" {
-  domain = "qcbrunch.com"
-  type   = "A"
-  name   = ""
-  value  = "76.76.21.21"
-  ttl    = 60
 }
