@@ -37,21 +37,21 @@ resource "vercel_dns_record" "vercel_system_caa" {
 # sendgrid domain authentication (sender authentication)
 # - https://docs.sendgrid.com/ui/account-and-settings/how-to-set-up-domain-authentication
 
-resource "vercel_dns_record" "sendgrid_domain_authentication_2" {
-  id     = "rec_7569dbe13a03d1a292e5f903"
-  domain = "qcbrunch.com"
-  type   = "CNAME"
-  name   = "s1._domainkey"
-  value  = "s1.domainkey.u9701527.wl028.sendgrid.net."
-  ttl    = 86400
-}
-
 resource "vercel_dns_record" "sendgrid_domain_authentication_1" {
   id     = "rec_9188463caaa53c00f272de76"
   domain = "qcbrunch.com"
   type   = "CNAME"
   name   = "em2428"
   value  = "u9701527.wl028.sendgrid.net."
+  ttl    = 86400
+}
+
+resource "vercel_dns_record" "sendgrid_domain_authentication_2" {
+  id     = "rec_7569dbe13a03d1a292e5f903"
+  domain = "qcbrunch.com"
+  type   = "CNAME"
+  name   = "s1._domainkey"
+  value  = "s1.domainkey.u9701527.wl028.sendgrid.net."
   ttl    = 86400
 }
 
