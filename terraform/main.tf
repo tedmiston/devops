@@ -15,13 +15,6 @@ terraform {
   }
 }
 
-module "obsidian_day_template" {
-  source = "./modules/obsidian_day_template"
-
-  basic_auth_username = var.obsidian_day_template_username
-  basic_auth_password = var.obsidian_day_template_password
-}
-
 module "qcbrunch" {
   source = "./modules/qcbrunch"
 }
