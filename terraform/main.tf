@@ -27,18 +27,12 @@ variable "vercel_api_token" {
 
 module "taylore_dev" {
   source = "./modules/taylore.dev"
-
-  # vercel_api_token = var.vercel_api_token
 }
 
 module "qcbrunch" {
   source = "./modules/qcbrunch"
-
-  # vercel_api_token = var.vercel_api_token
 }
 
 module "foo" {
   source = "./modules/foo"
-
-  # vercel_api_token = var.vercel_api_token
 }
