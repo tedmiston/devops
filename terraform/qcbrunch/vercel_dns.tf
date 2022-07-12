@@ -29,9 +29,7 @@ resource "vercel_dns_record" "vercel_system_caa" {
   type   = "CAA"
   name   = ""
   value  = "0 issue \"letsencrypt.org\""
-  # ttl    = 0
-  # ttl    = null
-  ttl = 60
+  ttl    = 60
 }
 
 # -- custom dns records --
