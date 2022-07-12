@@ -1,10 +1,10 @@
 .PHONY: format
 format:
-	terraform validate && terraform fmt -recursive
+	terraform fmt -recursive
 
 .PHONY: plan
 plan:
-	terraform init && terraform plan
+	terraform validate && terraform init && terraform plan
 
 .PHONY: apply
 apply:
