@@ -15,10 +15,6 @@ terraform {
   }
 }
 
-provider "vercel" {
-  api_token = var.vercel_api_token
-}
-
 resource "vercel_project" "project" {
   id        = "prj_4R6183xLnkBaJmXHxznrs52NcSAn"
   name      = "obsidian-day-template-dev"
