@@ -1,3 +1,7 @@
+locals {
+  domain = "qcbrunch.com"
+}
+
 # -- vercel system dns records --
 
 # these records are created by vercel and not editable via the vercel web app.
@@ -7,7 +11,7 @@
 
 resource "vercel_dns_record" "vercel_system_cname" {
   id     = "rec_cedd6cebbf44a21005a9321e"
-  domain = var.domain
+  domain = local.domain
   type   = "CNAME"
   name   = "*"
   value  = "cname.vercel-dns.com."
@@ -16,7 +20,7 @@ resource "vercel_dns_record" "vercel_system_cname" {
 
 resource "vercel_dns_record" "vercel_system_a" {
   id     = "rec_0c999ce54a4bb0fd59179516"
-  domain = var.domain
+  domain = local.domain
   type   = "A"
   name   = ""
   value  = "76.76.21.21"
@@ -25,7 +29,7 @@ resource "vercel_dns_record" "vercel_system_a" {
 
 resource "vercel_dns_record" "vercel_system_caa" {
   id     = "rec_d0c3daafcc2f548ef7ecac17"
-  domain = var.domain
+  domain = local.domain
   type   = "CAA"
   name   = ""
   value  = "0 issue \"letsencrypt.org\""
@@ -39,7 +43,7 @@ resource "vercel_dns_record" "vercel_system_caa" {
 
 resource "vercel_dns_record" "sendgrid_domain_authentication_1" {
   id     = "rec_9188463caaa53c00f272de76"
-  domain = var.domain
+  domain = local.domain
   type   = "CNAME"
   name   = "em2428"
   value  = "u9701527.wl028.sendgrid.net."
@@ -48,7 +52,7 @@ resource "vercel_dns_record" "sendgrid_domain_authentication_1" {
 
 resource "vercel_dns_record" "sendgrid_domain_authentication_2" {
   id     = "rec_7569dbe13a03d1a292e5f903"
-  domain = var.domain
+  domain = local.domain
   type   = "CNAME"
   name   = "s1._domainkey"
   value  = "s1.domainkey.u9701527.wl028.sendgrid.net."
@@ -57,7 +61,7 @@ resource "vercel_dns_record" "sendgrid_domain_authentication_2" {
 
 resource "vercel_dns_record" "sendgrid_domain_authentication_3" {
   id     = "rec_f218a77416d00fb76fe5c3d4"
-  domain = var.domain
+  domain = local.domain
   type   = "CNAME"
   name   = "s2._domainkey"
   value  = "s2.domainkey.u9701527.wl028.sendgrid.net."
