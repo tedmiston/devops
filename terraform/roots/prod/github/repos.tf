@@ -2,7 +2,7 @@
 
 resource "github_repository" "devops" {
   name         = "devops"
-  description  = "hello, world :robot:"
+  description  = "Terraform and related things :robot:"
   homepage_url = "https://github.com/tedmiston/devops"
 
   visibility = "public"
