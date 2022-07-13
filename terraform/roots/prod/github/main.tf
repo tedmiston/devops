@@ -20,18 +20,3 @@ provider "github" {
 
   owner = "tedmiston"
 }
-
-variable "github_token" {
-  type        = string
-  sensitive   = true
-  description = "GitHub Personal Access Token"
-}
-
-# -- public repos --
-
-resource "github_repository" "devops" {
-  name        = "devops"
-  description = "hello, world :robot:"
-
-  visibility = "public"
-}
