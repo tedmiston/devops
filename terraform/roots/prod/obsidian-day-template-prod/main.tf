@@ -14,32 +14,3 @@ terraform {
     }
   }
 }
-
-resource "vercel_project" "project" {
-  id        = "prj_EQ2I5oI5Vky7sYui63vzb2dDCftq"
-  name      = "obsidian-day-template-prod"
-  framework = null
-
-  environment = [
-    {
-      key    = "BASIC_AUTH_USERNAME"
-      value  = var.obsidian_day_template_username
-      target = ["development", "preview", "production"]
-    },
-    {
-      key    = "BASIC_AUTH_PASSWORD"
-      value  = var.obsidian_day_template_password
-      target = ["development", "preview", "production"]
-    }
-  ]
-
-  public_source              = false
-  serverless_function_region = "iad1"
-
-  lifecycle {
-    # vercel projects getting deleted and recreated is a PITA for directories
-    # that are deployed to multiple vercel projects because the project ID
-    # changing leads to deploys breaking
-    prevent_destroy = true
-  }
-}
