@@ -20,5 +20,5 @@ module "qcbrunch" {
 }
 
 module "taylore_dot_dev" {
-  source = "./modules/taylore_dot_dev"
+  source = "./modules/taylore-dot-dev"
 }
