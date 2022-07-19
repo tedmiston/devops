@@ -18,7 +18,3 @@ terraform {
 module "qcbrunch" {
   source = "./modules/qcbrunch"
 }
-
-module "taylore_dot_dev" {
-  source = "./modules/taylore-dot-dev"
-}
