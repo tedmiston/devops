@@ -25,8 +25,8 @@ variable "vercel_api_token" {
   description = "Vercel API token"
 }
 
-module "taylore_dot_dev" {
-  source = "./taylore-dot-dev"
+module "taylore" {
+  source = "./taylore"
 
   vercel_project_name_base = "taylore-prod"
   vercel_region            = "iad1"
