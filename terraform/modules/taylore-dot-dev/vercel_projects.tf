@@ -1,5 +1,5 @@
 resource "vercel_project" "project_www" {
-  name      = var.vercel_project_name_www
+  name      = "${var.vercel_project_name_base}-www"
   framework = "vue"
 
   public_source              = false
@@ -7,7 +7,7 @@ resource "vercel_project" "project_www" {
 }
 
 resource "vercel_project" "project_talks" {
-  name      = var.vercel_project_name_talks
+  name      = "${var.vercel_project_name_base}-talks"
   framework = null
 
   public_source              = false

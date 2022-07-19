@@ -30,7 +30,6 @@ module "taylore_dot_dev" {
   # `ln -s ../../../modules/taylore-dot-dev/ ./taylore-dot-dev`
   source = "./taylore-dot-dev"
 
-  vercel_project_name_www   = "taylore-dev-www"
-  vercel_project_name_talks = "taylore-dev-talks"
-  vercel_region             = "iad1"
+  vercel_project_name_base = "taylore-dev"
+  vercel_region            = "iad1"
 }

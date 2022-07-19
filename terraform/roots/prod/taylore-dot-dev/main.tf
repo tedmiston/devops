@@ -28,7 +28,6 @@ variable "vercel_api_token" {
 module "taylore_dot_dev" {
   source = "./taylore-dot-dev"
 
-  vercel_project_name_www   = "taylore-prod-www"
-  vercel_project_name_talks = "taylore-prod-talks"
-  vercel_region             = "iad1"
+  vercel_project_name_base = "taylore-prod"
+  vercel_region            = "iad1"
 }

@@ -1,11 +1,6 @@
-variable "vercel_project_name_www" {
+variable "vercel_project_name_base" {
   type        = string
-  description = "Vercel project name - Root / WWW site"
-}
-
-variable "vercel_project_name_talks" {
-  type        = string
-  description = "Vercel project name - Talks site"
+  description = "Vercel project base name (without a sub-site suffix)"
 }
 
 variable "vercel_region" {
