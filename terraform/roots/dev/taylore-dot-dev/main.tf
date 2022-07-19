@@ -26,8 +26,6 @@ variable "vercel_api_token" {
 }
 
 module "taylore_dot_dev" {
-  # https://github.com/hashicorp/terraform/issues/23333#issuecomment-564662878
-  # `ln -s ../../../modules/taylore-dot-dev/ ./taylore-dot-dev`
   source = "./taylore-dot-dev"
 
   vercel_project_name_base = "taylore-dev"
