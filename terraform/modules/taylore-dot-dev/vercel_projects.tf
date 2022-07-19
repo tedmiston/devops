@@ -1,5 +1,5 @@
-resource "vercel_project" "project" {
-  name      = var.vercel_project_name
+resource "vercel_project" "project_www" {
+  name      = var.vercel_project_name_www
   framework = "vue"
 
   public_source              = false

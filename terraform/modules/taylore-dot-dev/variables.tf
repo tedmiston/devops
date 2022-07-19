@@ -1,6 +1,6 @@
-variable "vercel_project_name" {
+variable "vercel_project_name_www" {
   type        = string
-  description = "Vercel project name"
+  description = "Vercel project name - Root / WWW"
 }
 
 variable "vercel_region" {
