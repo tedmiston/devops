@@ -23,7 +23,7 @@ resource "github_branch_default" "devops" {
 resource "github_branch_protection" "devops" {
   repository_id = github_repository.devops.node_id
 
-  pattern = "main"
+  pattern = github_branch.devops.branch
 }
 
 # -- boa --
@@ -49,5 +49,5 @@ resource "github_branch_default" "boa" {
 resource "github_branch_protection" "boa" {
   repository_id = github_repository.boa.node_id
 
-  pattern = "main"
+  pattern = github_branch.boa.branch
 }
