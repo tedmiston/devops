@@ -47,3 +47,40 @@ resource "github_branch_protection" "boa" {
   repository_id = github_repository.boa_repo.node_id
   pattern       = github_branch.boa.branch
 }
+
+# -- qcbrunch --
+
+resource "github_repository" "qcbrunch_repo" {
+  name         = "qcbrunch"
+  description  = "The Breakfast & Brunch Guide for Cincinnati, Ohio 🍴"
+  homepage_url = "https://www.qcbrunch.com"
+  visibility   = "public"
+
+  has_issues             = true
+  has_downloads          = true
+  delete_branch_on_merge = true
+  vulnerability_alerts   = true
+
+  topics = [
+    "breakfast",
+    "cincinnati",
+    "food",
+    "restaurant",
+    "restaurant-information",
+  ]
+}
+
+resource "github_branch" "qcbrunch_branch_main" {
+  repository = github_repository.qcbrunch_repo.name
+  branch     = "master"
+}
+
+resource "github_branch_default" "qcbrunch_branch_default" {
+  repository = github_repository.qcbrunch_repo.name
+  branch     = github_branch.qcbrunch_branch_main.branch
+}
+
+resource "github_branch_protection" "qcbrunch_branch_protection" {
+  repository_id = github_repository.qcbrunch_repo.node_id
+  pattern       = github_branch.qcbrunch_branch_main.branch
+}
