@@ -9,19 +9,19 @@ resource "github_repository" "devops_repo" {
   visibility   = "public"
 }
 
-resource "github_branch" "devops" {
+resource "github_branch" "devops_branch_main" {
   repository = github_repository.devops_repo.name
   branch     = "main"
 }
 
-resource "github_branch_default" "devops" {
+resource "github_branch_default" "devops_branch_default" {
   repository = github_repository.devops_repo.name
-  branch     = github_branch.devops.branch
+  branch     = github_branch.devops_branch_main.branch
 }
 
-resource "github_branch_protection" "devops" {
+resource "github_branch_protection" "devops_branch_protection" {
   repository_id = github_repository.devops_repo.node_id
-  pattern       = github_branch.devops.branch
+  pattern       = github_branch.devops_branch_main.branch
 }
 
 # -- boa --
@@ -33,19 +33,19 @@ resource "github_repository" "boa_repo" {
   visibility   = "public"
 }
 
-resource "github_branch" "boa" {
+resource "github_branch" "boa_branch_main" {
   repository = github_repository.boa_repo.name
   branch     = "main"
 }
 
-resource "github_branch_default" "boa" {
+resource "github_branch_default" "boa_branch_default" {
   repository = github_repository.boa_repo.name
-  branch     = github_branch.boa.branch
+  branch     = github_branch.boa_branch_main.branch
 }
 
-resource "github_branch_protection" "boa" {
+resource "github_branch_protection" "boa_branch_protection" {
   repository_id = github_repository.boa_repo.node_id
-  pattern       = github_branch.boa.branch
+  pattern       = github_branch.boa_branch_main.branch
 }
 
 # -- qcbrunch --
