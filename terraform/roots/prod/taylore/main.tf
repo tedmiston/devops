@@ -15,16 +15,6 @@ terraform {
   }
 }
 
-provider "vercel" {
-  api_token = var.vercel_api_token
-}
-
-variable "vercel_api_token" {
-  type        = string
-  sensitive   = true
-  description = "Vercel API token"
-}
-
 module "taylore" {
   source = "./taylore"
 
