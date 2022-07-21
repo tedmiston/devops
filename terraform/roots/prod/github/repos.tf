@@ -87,28 +87,6 @@ resource "github_branch_protection" "qcbrunch_branch_protection" {
 
 # # -- wordle-tools --
 
-# resource "github_repository" "wordle_tools_repo" {
-#   name         = "wordle-tools"
-#   description  = ""
-#   homepage_url = ""
-#   visibility   = "public"
-# }
-
-# resource "github_branch" "wordle_tools_branch_main" {
-#   repository = github_repository.wordle_tools_repo.name
-#   branch     = "main"
-# }
-
-# resource "github_branch_default" "wordle_tools_branch_default" {
-#   repository = github_repository.wordle_tools_repo.name
-#   branch     = github_branch.wordle_tools_branch_main.branch
-# }
-
-# resource "github_branch_protection" "wordle_tools_branch_protection" {
-#   repository_id = github_repository.wordle_tools_repo.node_id
-#   pattern       = github_branch.wordle_tools_branch_main.branch
-# }
-
 module "wordle_tools_repo" {
   source  = "mineiros-io/repository/github"
   version = "~> 0.16.0"
@@ -119,23 +97,6 @@ module "wordle_tools_repo" {
   auto_init        = true
   license_template = "mit"
   default_branch   = "main"
-
-  # branches = [
-  #   {
-  #     name = "main"
-  #   }
-  # ]
-
-  # branch_protections_v3 = [
-  #   {
-  #     branch = "main"
-  #   }
-  # ]
-  # branch_protections = [
-  #   {
-  #     branch = "main"
-  #   }
-  # ]
 }
 
 # the `mineiros-io/terraform-github-repository` module only supports branch
@@ -147,6 +108,6 @@ module "wordle_tools_repo" {
 # [1]: https://github.com/mineiros-io/terraform-github-repository/issues/124
 
 resource "github_branch_protection" "wordle_tools_branch_protection" {
-  repository_id = "wordle-tools"
-  pattern       = "main"
+  repository_id = module.wordle_tools_repo.repository.node_id
+  pattern       = module.wordle_tools_repo.repository.default_branch
 }
