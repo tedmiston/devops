@@ -20,6 +20,11 @@ module "userscripts_repo" {
   auto_init        = true
   license_template = "mit"
   default_branch   = "main"
+
+  topics = [
+    "userscript",
+    "userscripts",
+  ]
 }
 
 resource "github_branch_protection" "userscripts_branch_protection" {
@@ -39,6 +44,11 @@ module "userstyles_repo" {
   auto_init        = true
   license_template = "mit"
   default_branch   = "main"
+
+  topics = [
+    "userstyle",
+    "userstyles",
+  ]
 }
 
 resource "github_branch_protection" "userstyles_branch_protection" {
