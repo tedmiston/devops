@@ -1,5 +1,13 @@
 # == public repos ==
 
+# the `mineiros-io/terraform-github-repository` module only supports branch
+# protection v3 which throws errors when created outside of a github
+# organization account.  they are planning to add support for branch protection
+# v4 in the future [1], but for now we need to use the github provider directly
+# for it.
+#
+# [1]: https://github.com/mineiros-io/terraform-github-repository/issues/124
+
 # -- devops --
 
 resource "github_repository" "devops_repo" {
@@ -85,7 +93,7 @@ resource "github_branch_protection" "qcbrunch_branch_protection" {
   pattern       = github_branch.qcbrunch_branch_main.branch
 }
 
-# # -- wordle-tools --
+# -- wordle-tools --
 
 module "wordle_tools_repo" {
   source  = "mineiros-io/repository/github"
@@ -98,14 +106,6 @@ module "wordle_tools_repo" {
   license_template = "mit"
   default_branch   = "main"
 }
-
-# the `mineiros-io/terraform-github-repository` module only supports branch
-# protection v3 which throws errors when created outside of a github
-# organization account.  they are planning to add support for branch protection
-# v4 in the future [1], but for now we need to use the github provider directly
-# for it.
-#
-# [1]: https://github.com/mineiros-io/terraform-github-repository/issues/124
 
 resource "github_branch_protection" "wordle_tools_branch_protection" {
   repository_id = module.wordle_tools_repo.repository.node_id
