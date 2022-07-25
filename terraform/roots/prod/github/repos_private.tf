@@ -8,6 +8,26 @@
 #
 # [1]: https://github.com/mineiros-io/terraform-github-repository/issues/124
 
+# -- devops-private --
+# anything devops related that isn't in this public repo :o
+
+module "devops_private_repo" {
+  source  = "mineiros-io/repository/github"
+  version = "~> 0.16.0"
+
+  name       = "devops-private"
+  visibility = "private"
+
+  auto_init            = true
+  default_branch       = "main"
+  vulnerability_alerts = true
+}
+
+resource "github_branch_protection" "devops_private_branch_protection" {
+  repository_id = module.devops_private_repo.repository.node_id
+  pattern       = module.devops_private_repo.repository.default_branch
+}
+
 # -- userscripts --
 
 module "userscripts_repo" {
