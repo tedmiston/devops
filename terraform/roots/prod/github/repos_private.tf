@@ -17,9 +17,10 @@ module "userscripts_repo" {
   name       = "userscripts"
   visibility = "private"
 
-  auto_init        = true
-  license_template = "mit"
-  default_branch   = "main"
+  auto_init            = true
+  license_template     = "mit"
+  default_branch       = "main"
+  vulnerability_alerts = true
 
   topics = [
     "userscript",
@@ -41,9 +42,10 @@ module "userstyles_repo" {
   name       = "userstyles"
   visibility = "private"
 
-  auto_init        = true
-  license_template = "mit"
-  default_branch   = "main"
+  auto_init            = true
+  license_template     = "mit"
+  default_branch       = "main"
+  vulnerability_alerts = true
 
   topics = [
     "userstyle",
